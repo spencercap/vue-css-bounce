@@ -27,6 +27,12 @@ import { defineComponent } from 'vue'
 // https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet/insertRule
 // https://developer.mozilla.org/en-US/docs/Web/API/CSSKeyframesRule/deleteRule
 
+// TODO - how to do a this sorta thing for mic cable:
+// https://codepen.io/guerrillacontra/pen/XPZeww
+// https://codepen.io/Jeremboo/pen/QGVaYa
+// no lib JS way to do rope physics:
+// https://codepen.io/vvvictoria/pen/JzDaq
+
 export default defineComponent({
 	name: 'BounceXY',
 	data() {
