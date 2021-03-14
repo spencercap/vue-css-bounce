@@ -10,6 +10,8 @@
 
 <body>
   <div id="app"></div>
+  <script type="module" src="/src/main.ts"></script>
+
   <style id="styleInjection">
     .colorful {
       background: red;
@@ -18,8 +20,47 @@
     .two {
       color: green;
     }
+
+    .animateX {}
+
+    .animateXElastic {
+      animation: animationXElastic 1s forwards;
+    }
+
+    @keyframes animationXElastic {
+      0% {
+        transform: translateX(0%);
+      }
+
+      16% {
+        transform: translateX(-132.27%);
+      }
+
+      28% {
+        transform: translateX(-86.88%);
+      }
+
+      44% {
+        transform: translateX(-104.63%);
+      }
+
+      59% {
+        transform: translateX(-98.36%);
+      }
+
+      73% {
+        transform: translateX(-100.58%);
+      }
+
+      88% {
+        transform: translateX(-99.8%);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
   </style>
-  <script type="module" src="/src/main.ts"></script>
 </body>
 
 </html>

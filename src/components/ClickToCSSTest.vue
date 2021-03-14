@@ -7,14 +7,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
+// https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet/insertRule
+// https://developer.mozilla.org/en-US/docs/Web/API/CSSKeyframesRule/deleteRule
+
 export default defineComponent({
 	name: 'ClickToCSSTest',
-	// props: {
-	// 	msg: {
-	// 		type: String,
-	// 		required: true
-	// 	}
-	// },
 	mounted() {
 		console.log('ClickToCSSTest mounted');
 	},
@@ -26,14 +23,8 @@ export default defineComponent({
 			const endX = window.innerWidth / 2; // middle of page
 
 
-			// const styleTag = document.createElement('style');
 			const styleTag = document.querySelector('#styleInjection') as undefined | HTMLElement;
 			if (styleTag) {
-				// styleTag.innerText = `
-				// 	.colorful {
-				// 		background: ${randomColor} !important;
-				// 	}
-				// `;
 
 				// CSSStyleSheet
 				const sheet = (styleTag as any).sheet as CSSStyleSheet;
@@ -43,36 +34,107 @@ export default defineComponent({
 				// for (let rule of ruleList)
 				const rulesArr = [...(ruleList as any)];
 				rulesArr.forEach((rule, i) => {
-					console.log('rule', i, rule);
+					// console.log('rule', i, rule);
 
 					if (rule.selectorText == '.colorful') {
-						console.log('found colorful');
+						// console.log('replacing .colorful');
 
 						// remove old
 						sheet.deleteRule(i);
 
 						const randomColor = `hsl(${Math.random() * 360}, 50%, 75%)`
-						console.log('randomColor', randomColor);
+						// console.log('randomColor', randomColor);
 
 						// add new
 						sheet.insertRule(`
 							.colorful {
-								background: ${randomColor} !important;
+								background: ${randomColor};
 							}
 						`)
+					} else if (rule.selectorText == '.animateX') {
+						console.log('replacing .animateX');
+
+						// remove old
+						sheet.deleteRule(i);
+
+						// add new
+						sheet.insertRule(`
+							.animateX {
+								left: ${startX}px;
+							}
+						`);
 					}
+					// KEYFRAME ANIMATIONS
+					else if (!rule.selectorText) {
+						if (rule.name == 'animationXElastic') {
+							console.log('replacing animationXElastic');
+
+							// remove old
+							sheet.deleteRule(i);
+
+							// add new
+							sheet.insertRule(`
+								@keyframes animationXElastic {
+									0% {
+										transform: translateX(0%);
+									}
+
+									16% {
+										transform: translateX(-132.27%);
+									}
+
+									28% {
+										transform: translateX(-86.88%);
+									}
+
+									44% {
+										transform: translateX(-104.63%);
+									}
+
+									59% {
+										transform: translateX(-98.36%);
+									}
+
+									73% {
+										transform: translateX(-100.58%);
+									}
+
+									88% {
+										transform: translateX(-99.8%);
+									}
+
+									100% {
+										transform: translateX(-0%);
+									}
+								}
+							`);
+							//
+
+						}
+					}
+
 				});
 
-				// keyframes.deleteRule('to');
+
 			}
 
+			const boxEl = document.querySelector('.box') as undefined | HTMLElement;
+			if (boxEl) {
+				// TODO handle state where it had animation class already and wont get anim end then
 
-			// document.body.appendChild(styleTag);
+				console.log('adding animateXElastic');
+				boxEl.classList.add('animateXElastic');
 
-			// const boxEl = document.querySelector('.box') as undefined | HTMLElement;
-			// if (boxEl) {
-			// 	boxEl.classList.add('colorful');
-			// }
+				boxEl.onanimationend = () => {
+					console.log('removing animateXElastic');
+					boxEl.classList.remove('animateXElastic');
+					boxEl.onanimationend = null;
+				};
+
+				// if (boxEl.classList.contains('animateXElastic')) {
+				// 	console.log('has it');
+				// }
+			}
 		}
 	}
 })
@@ -83,6 +145,8 @@ export default defineComponent({
 	background: pink;
 	width: 100vw;
 	height: 200px;
+
+	cursor: pointer;
 }
 .box {
 	position: absolute;
@@ -92,45 +156,5 @@ export default defineComponent({
 	height: 100px;
 
 	transition: all 1s;
-}
-</style>
-
-<style>
-.anim {
-	animation: easeOutElastic 1s forwards;
-}
-
-@keyframes easeOutElastic {
-	0% {
-		transform: translateX(0%);
-	}
-
-	16% {
-		transform: translateX(-132.27%);
-	}
-
-	28% {
-		transform: translateX(-86.88%);
-	}
-
-	44% {
-		transform: translateX(-104.63%);
-	}
-
-	59% {
-		transform: translateX(-98.36%);
-	}
-
-	73% {
-		transform: translateX(-100.58%);
-	}
-
-	88% {
-		transform: translateX(-99.8%);
-	}
-
-	100% {
-		transform: translateX(-100%);
-	}
 }
 </style>
