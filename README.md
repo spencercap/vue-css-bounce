@@ -1,4 +1,8 @@
-# Vue 3 + Typescript + Vite
+# CSS frontend for a weird Linr experience
+
+[demo](https://spencercap.github.io/ottens-linr/)
+
+## Vue 3 + Typescript + Vite
 
 This template should help get you started developing with Vue 3 and Typescript in Vite.
 

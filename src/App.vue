@@ -45,12 +45,15 @@ export default defineComponent({
 	color: #2c3e50;
 	margin-top: 60px;
 }
+html,
 body {
 	margin: 0;
+	overscroll-behavior: none;
 }
 p.info {
 	text-align: left;
 	max-width: 400px;
 	margin: 0 auto;
+	padding: 1em;
 }
 </style>
