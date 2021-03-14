@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Bounce w Dynamic Keyframe Animation</title>
+  <script type="module" crossorigin src="/ottens-linr/assets/index.6615d2f7.js"></script>
+  <link rel="modulepreload" href="/ottens-linr/assets/vendor.6bc0b4fd.js">
+  <link rel="stylesheet" href="/ottens-linr/assets/index.0580e165.css">
+</head>
+
+<body>
+  <div id="app"></div>
+
+
+  <style id="styleInjection">
+    .colorful {
+      background: lightblue;
+    }
+
+    .two {
+      color: green;
+    }
+
+    .animateX {}
+
+    .animateXElastic {
+      animation: animationXElastic 1.5s forwards;
+    }
+
+    .animateElasticXY {
+      animation: animElasticXY 1.5s forwards;
+    }
+
+    @keyframes animationXElastic {
+      0% {
+        transform: translateX(0%);
+      }
+
+      16% {
+        transform: translateX(-132.27%);
+      }
+
+      28% {
+        transform: translateX(-86.88%);
+      }
+
+      44% {
+        transform: translateX(-104.63%);
+      }
+
+      59% {
+        transform: translateX(-98.36%);
+      }
+
+      73% {
+        transform: translateX(-100.58%);
+      }
+
+      88% {
+        transform: translateX(-99.8%);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* temp placeholder */
+    @keyframes animElasticXY {
+      0% {
+        transform: translate(0%, 0%);
+      }
+
+      100% {
+        transform: translate(100%, 100%);
+      }
+    }
+  </style>
+</body>
+
+</html>
