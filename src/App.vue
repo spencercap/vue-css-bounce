@@ -1,22 +1,37 @@
 <template>
-	<img alt="Vue logo" src="./assets/logo.png" />
+	<!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
 	<!-- <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" /> -->
 
-	<p>CSS Bounce physics</p>
+	<h2>CSS Bounce!</h2>
+	<p class="info">
+		Computes CSS keyframe animation in JS on dragend. Dynamically updates
+		CSS via JS.
+		<br />
+		<br />
+		Why: Simulate some physics + go further than the built in easing
+		functions.
+	</p>
+	<h2>⚛️</h2>
 
-	<ClickToCSSTest />
+	<div style="height: 120px"></div>
+
+	<BounceXY />
+	<!-- <ClickToCSSTest /> -->
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
 import ClickToCSSTest from './components/ClickToCSSTest.vue'
+import BounceXY from './components/BounceXY.vue'
+
 
 export default defineComponent({
 	name: 'App',
 	components: {
 		HelloWorld,
-		ClickToCSSTest
+		ClickToCSSTest,
+		BounceXY
 	}
 })
 </script>
@@ -32,5 +47,10 @@ export default defineComponent({
 }
 body {
 	margin: 0;
+}
+p.info {
+	text-align: left;
+	max-width: 400px;
+	margin: 0 auto;
 }
 </style>
