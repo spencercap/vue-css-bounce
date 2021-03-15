@@ -202,10 +202,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-* {
-	user-select: none;
-}
-
 .box {
 	--width: 100px;
 	position: absolute;

@@ -3,6 +3,7 @@
 	<!-- <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" /> -->
 
 	<h2>CSS Bounce!</h2>
+	<a href="https://github.com/spencercap/ottens-linr">repo</a>
 	<p class="info">
 		Computes CSS keyframe animation in JS on dragend. Dynamically updates
 		CSS via JS.
@@ -44,6 +45,7 @@ export default defineComponent({
 	text-align: center;
 	color: #2c3e50;
 	margin-top: 60px;
+	user-select: none;
 }
 html,
 body {
