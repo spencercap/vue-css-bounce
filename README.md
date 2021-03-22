@@ -1,4 +1,5 @@
-# CSS frontend for a weird Linr experience
+# CSS experiment - Bounce physics with CSS animation
+computed + added to element on drag end
 
 [demo](https://spencercap.github.io/vue-css-bounce/)
 

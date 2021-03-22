@@ -3,7 +3,7 @@
 	<!-- <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" /> -->
 
 	<h2>CSS Bounce!</h2>
-	<a href="https://github.com/spencercap/ottens-linr">repo</a>
+	<a href="https://github.com/spencercap/vue-css-bounce">repo</a>
 	<p class="info">
 		Computes CSS keyframe animation in JS on dragend. Dynamically updates
 		CSS via JS.
