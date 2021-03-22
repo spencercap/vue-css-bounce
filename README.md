@@ -1,6 +1,6 @@
 # CSS frontend for a weird Linr experience
 
-[demo](https://spencercap.github.io/ottens-linr/)
+[demo](https://spencercap.github.io/vue-css-bounce/)
 
 ## Vue 3 + Typescript + Vite
 
